@@ -4,9 +4,18 @@ import "./App.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
   const isFormInvalid =
     !email.trim().includes("@") || password.trim().length < 6;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isFormInvalid) return;
+
+    alert("Login successful!");
+    setIsLoggedIn(true);
+  };
   return (
     <div className="container">
       <h2>Login</h2>
